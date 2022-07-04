@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="header center">
+            <img src="https://usersnap.com/blog/wp-content/uploads/2020/02/How-To-Get-More-Out-Of-Feature-Request-Collection-Tools-1.png" alt="" style="border-radius: 50%; width: 500px">
+            <br><br>
+            <h3>Feature request</h3>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="center">
+
+            <br>
+
+            <!-- Form to add/update-->
+            <form id="featureSubmitForm" action="" autocomplete="off">
+                <input type="hidden" id="hiddenId">
+                
+                <div class="input-field">
+                    <label for="featureTitle">Feature request title</label>
+                    <input type="text" id="featureTitle">
+                </div>
+
+                <div class="input-field">
+                    <label for="description">Feature request description</label>
+                    <textarea class="materialize-textarea" id="description"></textarea>
+                </div>
+
+                <br><br>
+
+                <button class="waves-effect waves-light btn" type="submit">Add / Update</button>
+                <button class="waves-effect waves-light btn" type="reset" value="Reset">Reset</button>
+
+            </form>
+
+
+            <!-- empty ul that we populate with data from firebase-->
+            <ul id="featureList"></ul>
+
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+
+    <!--My own scripts-->
+    <script type="module" src="app.js"></script>
+
+</body>
+</html>
