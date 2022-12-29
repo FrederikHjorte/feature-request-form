@@ -1,0 +1,34 @@
+body {
+    background: rgb(249, 249, 249);
+    color: rgb(47, 46, 65)
+  }
+
+
+
+ /* label color */
+ .input-field label {
+  color: #000;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #000;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+.container{
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+
+i{
+  cursor: pointer;
+}
+
+.title{
+  font-weight:bolder;
+}

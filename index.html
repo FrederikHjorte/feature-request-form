@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Feature Request Tool</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
 
     <div class="container">
-        <div class="header center">
-            <img src="https://usersnap.com/blog/wp-content/uploads/2020/02/How-To-Get-More-Out-Of-Feature-Request-Collection-Tools-1.png" alt="" style="border-radius: 50%; width: 500px">
+        <div class="center">
+            <img src="./undraw_teamwork_hpdk.svg" alt="" style="width: 400px; margin-top: 50px;">
             <br><br>
-            <h3>Feature request</h3>
+            <h3 style="font-weight: bolder;">Feature Request Tool</h3>
+            <div class="instructions">
+                <p style="font-weight: 400;">
+                    Suggest a new feature or modification of an existing feature and make your contribution to the platform.<br> 
+                    Your ideas are very welcome and will be serioursly considered as candidates for furture development. 
+                </p>
+            </div>
         </div>
     </div>
 
@@ -21,11 +30,13 @@
 
 
     <div class="container">
-        <div class="center">
+        <div class="center row">
 
             <br>
-
-            <!-- Form to add/update-->
+            
+            
+            
+                <!-- Form to add/update-->
             <form id="featureSubmitForm" action="" autocomplete="off">
                 <input type="hidden" id="hiddenId">
                 
@@ -39,12 +50,16 @@
                     <textarea class="materialize-textarea" id="description"></textarea>
                 </div>
 
+                <br>
+
+                <button class="waves-effect waves-light btn blue lighten-2" type="submit">Add / Update</button>
+                <button class="waves-effect waves-light btn blue lighten-2" type="reset" value="Reset">Reset</button>
+
                 <br><br>
 
-                <button class="waves-effect waves-light btn" type="submit">Add / Update</button>
-                <button class="waves-effect waves-light btn" type="reset" value="Reset">Reset</button>
-
             </form>
+
+      
 
 
             <!-- empty ul that we populate with data from firebase-->

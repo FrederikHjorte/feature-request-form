@@ -120,38 +120,47 @@ function clearForm(){
 
 
 
+
 // HTML template for each feature request item in the front end
 
 function requestTemplate({featureTitle, description, createdAt}) {
 
   var createdAtFormatted = new Date(createdAt);
+  var trimmedDate = createdAtFormatted.toString().split('G')[0];
 
   return `
-      <div style="text-align: left; margin-bottom: 30px; margin-top: 30px">
-        <label>Title:</label>
-        <span class="title"><strong>${ featureTitle }</strong></span>
+      <div class="card" style=" padding: 30px; text-align: left; margin-bottom: 5px; margin-top: 20px; border-radius: 10px">
+        
+      
+        <i class="material-icons edit" style="float: right;" >edit</i>
+        <i class="material-icons delete" style="float: right; margin-right:10px;">delete</i>
+
+        <i class="material-icons thumb_up" style="float: right; margin-right:10px;" >thumb_up</i>
+        <i class="material-icons thumb_down" style="float: right; margin-right:10px;" >thumb_down</i>
+
+        <br>
+      
+        
+        <span class="title">${ featureTitle }</span>
         
         <br>
 
         
         <label>Description:</label>
-        <span class="description"><strong>${ description }</strong></span>
+        <div class="description" style="white-space: pre-line; text-overflow: ellipsis; overflow: hidden;">${ description }</div>
 
         <br>
 
         <label>Created at:</label>
-        <span class="createdAt"><strong>${ createdAtFormatted }</strong></span>
+        <span class="createdAt">${ trimmedDate }</span>
         
-        <br>
-        <br>
-
-        <button name="data" class="waves-effect waves-light btn edit">Update</button>
-        <button name="data" class="waves-effect waves-light btn delete">Delete</button>
+     
+       
       </div>
  
 
       <br>
-      <hr>
+      
   `
 }
 
