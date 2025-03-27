@@ -1,34 +1,59 @@
 body {
-    background: rgb(249, 249, 249);
-    color: rgb(47, 46, 65)
+  background-color: #f4f4f4;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-card {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card {
+  transition: box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card {
+  text-align: left;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.material-icons {
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+  h3 {
+    font-size: 1.rem;
   }
 
+  .form-buttons {
+    flex-direction: column;
+  }
 
+  .form-buttons button {
+    margin-top: 10px;
+    width: 100%;
+  }
 
- /* label color */
- .input-field label {
-  color: #000;
-}
-/* label focus color */
-.input-field input[type=text]:focus + label {
-  color: #000;
-}
-/* label underline focus color */
-.input-field input[type=text]:focus {
-  border-bottom: 1px solid #000;
-  box-shadow: 0 1px 0 0 #000;
-}
+  .card {
+    padding: 16px !important;
+  }
 
-.container{
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-
-i{
-  cursor: pointer;
-}
-
-.title{
-  font-weight:bolder;
+  .material-icons {
+    font-size: 20px;
+  }
 }

@@ -123,46 +123,72 @@ function clearForm(){
 
 // HTML template for each feature request item in the front end
 
-function requestTemplate({featureTitle, description, createdAt}) {
+function requestTemplate({ featureTitle, description, createdAt, votes = {} }) {
+  const upVotes = votes.up || 0;
+  const downVotes = votes.down || 0;
 
   var createdAtFormatted = new Date(createdAt);
   var trimmedDate = createdAtFormatted.toString().split('G')[0];
 
   return `
-      <div class="card" style=" padding: 30px; text-align: left; margin-bottom: 5px; margin-top: 20px; border-radius: 10px">
-        
-      
-        <i class="material-icons edit" style="float: right;" >edit</i>
-        <i class="material-icons delete" style="float: right; margin-right:10px;">delete</i>
+    <div class="card feature-card z-depth-1">
+      <div class="card-content" style="position: relative;">
+        <div style="position: absolute; top: 10px; right: 10px;">
+          <i class="material-icons edit" style="cursor:pointer;">edit</i>
+          <i class="material-icons delete" style="cursor:pointer; margin-left:10px;">delete</i>
+        </div>
 
-        <i class="material-icons thumb_up" style="float: right; margin-right:10px;" >thumb_up</i>
-        <i class="material-icons thumb_down" style="float: right; margin-right:10px;" >thumb_down</i>
+        <h5 class="title" style="font-weight: 600; margin-bottom: 10px;">${featureTitle}</h5>
+
+        <label style="font-weight: 500;">Description:</label>
+        <div class="description" style="white-space: pre-line; margin-bottom: 12px;">${description}</div>
+
+        <div class="votes" style="margin-top: 10px;">
+          <i class="material-icons thumb_up" style="cursor:pointer; vertical-align: middle;">thumb_up</i> 
+          <span>${upVotes}</span>
+
+          <i class="material-icons thumb_down" style="cursor:pointer; margin-left:15px; vertical-align: middle;">thumb_down</i> 
+          <span>${downVotes}</span>
+        </div>
 
         <br>
-      
-        
-        <span class="title">${ featureTitle }</span>
-        
-        <br>
 
-        
-        <label>Description:</label>
-        <div class="description" style="white-space: pre-line; text-overflow: ellipsis; overflow: hidden;">${ description }</div>
-
-        <br>
-
-        <label>Created at:</label>
-        <span class="createdAt">${ trimmedDate }</span>
-        
-     
-       
+        <label style="font-weight: 500;">Created at:</label>
+        <div class="createdAt">${trimmedDate}</div>
       </div>
- 
-
-      <br>
-      
+    </div>
   `
 }
+
+
+function handleVote(e) {
+  const isUpvote = e.target.classList.contains("thumb_up");
+  const isDownvote = e.target.classList.contains("thumb_down");
+
+  if (!isUpvote && !isDownvote) return;
+
+  const featureCard = e.target.closest(".card");
+  const requestId = featureCard.id;
+
+  const voteType = isUpvote ? "up" : "down";
+  const localVoteKey = `voted_${requestId}`;
+
+  // prevent multiple votes from same user (basic)
+  const previousVote = localStorage.getItem(localVoteKey);
+  if (previousVote === voteType) {
+    return alert("You already voted.");
+  }
+
+  const voteRef = db.ref(`requests/${requestId}/votes/${voteType}`);
+
+  voteRef.transaction(current => (current || 0) + 1)
+    .then(() => {
+      localStorage.setItem(localVoteKey, voteType);
+    });
+}
+
+// Attach voting handler
+featureList.addEventListener("click", handleVote);
 
 
 

@@ -1,86 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feature Request Tool</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feature Request Tool</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body>
 
-    <div class="container">
-        <div class="center">
-            <img src="./undraw_teamwork_hpdk.svg" alt="" style="width: 400px; margin-top: 50px;">
-            <br><br>
-            <h3 style="font-weight: bolder;">Feature Request Tool</h3>
-            <div class="instructions">
-                <p style="font-weight: 400;">
-                    Suggest a new feature or modification of an existing feature and make your contribution to the platform.<br> 
-                    Your ideas are very welcome and will be serioursly considered as candidates for furture development. 
-                </p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="center">
+      <img src="./undraw_teamwork_hpdk.svg" alt="" style="width: 400px; margin-top: 50px; max-width: 100%;" />
+      <br><br>
+      <h3 style="font-weight: bolder;">Feature Request Tool</h3>
+      <div class="instructions">
+        <p style="font-weight: 400;">
+          Suggest a new feature or modification of an existing feature and make your contribution to the platform.<br>
+          Your ideas are very welcome and will be seriously considered as candidates for future development.
+        </p>
+      </div>
     </div>
+  </div>
 
-
-
-
-    <div class="container">
-        <div class="center row">
-
-            <br>
-            
-            
-            
-                <!-- Form to add/update-->
+  <!-- Form card -->
+  <div class="container">
+    <div class="row center">
+      <div class="col s12 m10 l8 offset-m1 offset-l2">
+        <div class="card white z-depth-2 form-card">
+          <div class="card-content">
             <form id="featureSubmitForm" action="" autocomplete="off">
-                <input type="hidden" id="hiddenId">
-                
-                <div class="input-field">
-                    <label for="featureTitle">Feature request title</label>
-                    <input type="text" id="featureTitle">
-                </div>
+              <input type="hidden" id="hiddenId" />
 
-                <div class="input-field">
-                    <label for="description">Feature request description</label>
-                    <textarea class="materialize-textarea" id="description"></textarea>
-                </div>
+              <div class="input-field">
+                <input type="text" id="featureTitle" />
+                <label for="featureTitle">Feature request title</label>
+              </div>
 
-                <br>
+              <div class="input-field">
+                <textarea class="materialize-textarea" id="description"></textarea>
+                <label for="description">Feature request description</label>
+              </div>
 
+              <div class="form-buttons">
                 <button class="waves-effect waves-light btn blue lighten-2" type="submit">Add / Update</button>
-                <button class="waves-effect waves-light btn blue lighten-2" type="reset" value="Reset">Reset</button>
-
-                <br><br>
-
+                <button class="waves-effect waves-light btn grey lighten-1" type="reset" value="Reset">Reset</button>
+              </div>
             </form>
-
-      
-
-
-            <!-- empty ul that we populate with data from firebase-->
-            <ul id="featureList"></ul>
-
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
+  <!-- Feature list -->
+  <div class="container">
+    <div class="row center">
+      <div class="col s12 m10 l8 offset-m1 offset-l2" id="featureListContainer">
+        <ul id="featureList" style="list-style: none; padding-left: 0;"></ul>
+      </div>
+    </div>
+  </div>
 
-
-
-
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-
-
-    <!--My own scripts-->
-    <script type="module" src="app.js"></script>
-
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
